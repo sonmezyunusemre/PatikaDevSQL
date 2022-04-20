@@ -1,2 +1,3 @@
 # PatikaDevSQL
-patika.dev SQL eğitimi ödevleri için oluşturulmuştur.
+
+This file has been created for Patika.dev SQL education.

@@ -59,6 +59,64 @@ insert into employee (id, name, birthday, email) values (49, 'Stanly Mosten', '1
 insert into employee (id, name, birthday, email) values (50, 'Izak Milkin', '1980-06-29', 'imilkin1d@wikimedia.org');
 
 -- 3) Sütunların her birine göre diğer sütunları güncelleyecek 5 adet UPDATE işlemi yapalım.
+	-- Update 1:
+UPDATE employee
+SET birthday = '1986-04-21'
+WHERE id = 37
+RETURNING *;
 
+	-- Update 2: 
+UPDATE employee
+SET 
+	name = 'Dan Brown',
+	birthday = '1993-04-27',
+	email = 'dbrown@time.com'
+WHERE id = 20
+RETURNING *;
+
+	-- Update 3:
+UPDATE employee
+SET name = 'Ronny Hussy'
+WHERE name LIKE 'Roch%'
+RETURNING *;
+
+	-- Update 4
+UPDATE employee
+SET email = 'hchiplen@chiplen.com'
+WHERE name LIKE 'Haleigh Chiplen'
+RETURNING *;
+
+	-- Update 5
+UPDATE employee
+SET 
+	name = 'Serdar Şahin',
+	birthday = '1999-07-25',
+	email = 'ssahin@sahinserdar.com'
+WHERE id = 48
+RETURNING *;
 
 -- 4) Sütunların her birine göre ilgili satırı silecek 5 adet DELETE işlemi yapalım.
+	-- Delete 1
+DELETE FROM employee
+WHERE id = 25
+RETURNING *;
+
+	-- Delete 2
+DELETE FROM employee
+WHERE birthday < '1970-01-01'
+RETURNING *;
+
+	-- Delete 3
+DELETE FROM employee
+WHERE name LIKE 'T%'
+RETURNING *;
+
+	-- Delete 4
+DELETE FROM employee
+WHERE email IS NULL
+RETURNING *;
+
+	-- Delete 5
+DELETE FROM employee
+WHERE email LIKE '%gov'
+RETURNING *;
